@@ -102,6 +102,40 @@
           }
         }
       }
+    },
+    "nx-my-lib": {
+      "projectType": "library",
+      "root": "projects/nx-my-lib",
+      "sourceRoot": "projects/nx-my-lib/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/nx-my-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nx-my-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nx-my-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/nx-my-lib/src/test.ts",
+            "tsConfig": "projects/nx-my-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/nx-my-lib/karma.conf.js"
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
